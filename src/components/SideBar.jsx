@@ -154,7 +154,6 @@ export default function SideBar() {
       </div>
       <div className="box2">
         <ul>
-          <li></li>
           <button onClick={() => logout()}>
             <li>
               <svg
