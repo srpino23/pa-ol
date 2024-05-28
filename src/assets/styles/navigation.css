@@ -1,0 +1,7 @@
+.mainContainer {
+  display: flex;
+}
+
+.subContainer {
+  padding: 1rem;
+}
