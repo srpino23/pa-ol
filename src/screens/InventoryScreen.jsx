@@ -10,7 +10,7 @@ export default function InventoryScreen() {
   var [data, setData] = useState([]);
 
   useState(() => {
-    Axios.post("http://pinotech.v6.army:2100/api/account/getUser", {
+    Axios.post("http://localhost:2100/api/account/getUser", {
       user: [
         {
           username: usernameInput,
@@ -27,7 +27,7 @@ export default function InventoryScreen() {
       .catch((error) => {
         console.log(error);
       });
-    Axios.post("http://pinotech.v6.army:2100/api/inventory/getInventory", {
+    Axios.post("http://localhost:2100/api/inventory/getInventory", {
       user: [
         {
           username: usernameInput,

@@ -11,7 +11,7 @@ export default function OrderScreen() {
   var [materials, setMaterials] = useState([]);
 
   useState(() => {
-    Axios.post("http://pinotech.v6.army:2100/api/account/getUser", {
+    Axios.post("http://localhost:2100/api/account/getUser", {
       user: [
         {
           username: usernameInput,
@@ -28,7 +28,7 @@ export default function OrderScreen() {
       .catch((error) => {
         console.log(error);
       });
-    Axios.post("http://pinotech.v6.army:2100/api/order/getOrders", {
+    Axios.post("http://localhost:2100/api/order/getOrders", {
       user: [
         {
           username: usernameInput,

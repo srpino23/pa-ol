@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Axios from "axios";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import SideBar from "./SideBar";

@@ -9,7 +9,7 @@ export default function HomeScreen() {
 
   function getUser() {
     // manejar datos con axios
-    Axios.post("http://pinotech.v6.army:2100/api/account/getUser", {
+    Axios.post("http://localhost:2100/api/account/getUser", {
       user: [
         {
           username: usernameInput,
