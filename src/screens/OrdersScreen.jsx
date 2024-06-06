@@ -1,38 +1,21 @@
 import React, { useState } from "react";
 import Axios from "axios";
 
-import "../assets/styles/orderScreen.css";
+import styles from "../assets/styles/orderScreen.module.css";
 
 export default function OrderScreen() {
   const [showModal, setShowModal] = useState(false);
-  var [usernameInput, setUsername] = useState(localStorage.getItem("username"));
-  var [passwordInput, setPassword] = useState(localStorage.getItem("password"));
+  var username = localStorage.getItem("username");
+  var password = localStorage.getItem("password");
   var [data, setData] = useState([]);
   var [materials, setMaterials] = useState([]);
 
   useState(() => {
-    Axios.post("http://localhost:2100/api/account/getUser", {
-      user: [
-        {
-          username: usernameInput,
-          password: passwordInput,
-        },
-      ],
-    })
-      .then((response) => {
-        if (response.data.data) {
-          setIsAdmin(response.data.data.isAdmin);
-          setData(response.data.data);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      });
     Axios.post("http://localhost:2100/api/order/getOrders", {
       user: [
         {
-          username: usernameInput,
-          password: passwordInput,
+          username: username,
+          password: password,
         },
       ],
     })
@@ -48,14 +31,14 @@ export default function OrderScreen() {
   });
 
   return (
-    <div className="container">
-      <div className="title">
+    <div className={styles.container}>
+      <div className={styles.title}>
         <h2>Pedidos</h2>
       </div>
       <hr />
-      <div className="filter">
+      <div className={styles.filter}>
         <input type="text" placeholder="Buscar..." />
-        <div className="options">
+        <div className={styles.options}>
           <select>
             <option value="all">Todos</option>
             <option value="pending">Pendiente</option>
@@ -83,14 +66,14 @@ export default function OrderScreen() {
               <td>{dato.teacher}</td>
               <td>{dato.grade}</td>
               <td>
-                <div className="status">
-                  <p className={dato.state}>{dato.state}</p>
+                <div className={styles.status}>
+                  <p className={styles[dato.state]}>{dato.state}</p>
                 </div>
               </td>
               <td>
-                <div className="actions">
+                <div className={styles.actions}>
                   <button
-                    className="primary"
+                    className={styles.primary}
                     onClick={() => setShowModal(true)}
                   >
                     Ver pedido
@@ -103,19 +86,22 @@ export default function OrderScreen() {
       </table>
 
       {showModal ? (
-        <div className="modal">
-          <div className="modal-content">
-            <div className="header">
+        <div className={styles.modal}>
+          <div className={styles.modalContent}>
+            <div className={styles.header}>
               <h2>Detalles del pedido</h2>
-              <button className="close" onClick={() => setShowModal(false)}>
+              <button
+                className={styles.close}
+                onClick={() => setShowModal(false)}
+              >
                 X
               </button>
             </div>
 
-            <div className="details">
+            <div className={styles.details}>
               <p>Lista de herramientas</p>
 
-              <div className="order">
+              <div className={styles.order}>
                 <table>
                   <thead>
                     <tr>
@@ -137,8 +123,8 @@ export default function OrderScreen() {
               </div>
             </div>
 
-            <div className="footer">
-              <button className="confirm">Confirmar pedido</button>
+            <div className={styles.footer}>
+              <button className={styles.confirm}>Confirmar pedido</button>
             </div>
           </div>
         </div>

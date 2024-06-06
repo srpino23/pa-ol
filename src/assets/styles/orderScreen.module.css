@@ -14,19 +14,6 @@
   margin-bottom: 1rem;
 }
 
-.container .title button {
-  background-color: #131a4e;
-  color: white;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.container .title button:hover {
-  background-color: #333e92;
-}
-
 .container hr {
   color: #e0e0e0;
 }
@@ -44,7 +31,6 @@
   border: none;
   padding: 0.5rem 1rem;
   border-radius: 5px;
-  cursor: pointer;
 }
 
 .container .filter .options {
@@ -65,7 +51,11 @@
 }
 
 .container table {
+  margin-top: 1rem;
   width: 100%;
+  max-height: 75%;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .container table thead {
@@ -177,7 +167,7 @@
   align-items: center;
 }
 
-.container .modal .modal-content {
+.container .modal .modalContent {
   background-color: white;
   padding: 2rem;
   border-radius: 5px;
@@ -185,18 +175,18 @@
   max-width: 500px;
 }
 
-.container .modal .modal-content .header {
+.container .modal .modalContent .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.container .modal .modal-content .header h2 {
+.container .modal .modalContent .header h2 {
   font-size: 1.5rem;
   font-weight: bold;
 }
 
-.container .modal .modal-content .header .close {
+.container .modal .modalContent .header .close {
   background-color: red;
   border: none;
   width: 2rem;
@@ -209,25 +199,25 @@
   cursor: pointer;
 }
 
-.container .modal .modal-content .details p {
+.container .modal .modalContent .details p {
   display: flex;
   flex-direction: column;
   padding: 1rem 0;
 }
 
-.container .modal .modal-content .order {
+.container .modal .modalContent .order {
   max-height: 200px;
   overflow-y: scroll;
 }
 
-.container .modal .modal-content .footer {
+.container .modal .modalContent .footer {
   display: flex;
   justify-content: flex-end;
   gap: 1rem;
   padding-top: 1rem;
 }
 
-.container .modal .modal-content .footer button {
+.container .modal .modalContent .footer button {
   padding: 0.5rem 1rem;
   border: none;
   border-radius: 5px;

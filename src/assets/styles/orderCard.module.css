@@ -1,0 +1,71 @@
+.orderBox {
+  background-color: #545454;
+  padding: 1rem;
+  width: 300px;
+  border-radius: 10px;
+  color: #fff;
+}
+
+.orderBox hr {
+  border: 1px solid gray;
+  border-radius: 2px;
+}
+
+.orderBox .cardTop p {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+.orderBox .cardTop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.orderBox .toolLine {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 15px 15px 15px 15px;
+}
+
+.orderBox .eye {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  background-color: #131a4e;
+  border-radius: 10px;
+  padding: 0.3rem;
+}
+
+.orderBox img {
+  height: 100%;
+  width: 100%;
+}
+
+.orderBox .orderState {
+  padding: 5px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+}
+
+.orderBox .Pendiente {
+  background-color: #ff9800;
+}
+
+.orderBox .Retirar {
+  background-color: #ff5722;
+}
+
+.orderBox .Entregado {
+  background-color: #4caf50;
+}
+
+.orderBox .Devuelto {
+  background-color: #2196f3;
+}

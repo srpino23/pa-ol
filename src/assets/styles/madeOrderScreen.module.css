@@ -1,0 +1,40 @@
+.container {
+  background-color: #fff;
+  height: calc(100vh - 2rem);
+  width: calc(100vw - 2rem - 60px);
+  border-radius: 5px;
+  padding: 2rem;
+  color: black;
+}
+
+.container .title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.container .title button {
+  background-color: #131a4e;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100px;
+}
+
+.container .title button:hover {
+  background-color: #333e92;
+}
+
+.container hr {
+  color: #e0e0e0;
+}
+
+.container .orders {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}

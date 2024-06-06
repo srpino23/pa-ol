@@ -1,56 +1,34 @@
 import React, { useState } from "react";
-import Axios from "axios";
 import { Link, useLocation } from "react-router-dom";
 
-import "../assets/styles/sideBar.css";
+import styles from "../assets/styles/sideBar.module.css";
 
 export default function SideBar() {
   const location = useLocation();
-  var [isLogged, setIsLogged] = useState(localStorage.getItem("isLogged"));
-  var [usernameInput, setUsername] = useState(localStorage.getItem("username"));
-  var [passwordInput, setPassword] = useState(localStorage.getItem("password"));
-  var [isAdmin, setIsAdmin] = useState(false);
+  const isLogged = JSON.parse(localStorage.getItem("isLogged"));
+  const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 
   useState(() => {
-    if (usernameInput && passwordInput) {
-      Axios.post("http://localhost:2100/api/account/getUser", {
-        user: [
-          {
-            username: usernameInput,
-            password: passwordInput,
-          },
-        ],
-      })
-        .then((response) => {
-          if (response.data.data) {
-            setIsAdmin(response.data.data.isAdmin);
-          }
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    }
+    console.log("LOGGED: " + isLogged);
+    console.log("ADMIN: " + isAdmin);
   });
 
   function logout() {
     localStorage.removeItem("isLogged");
-    setIsLogged(false);
+    localStorage.removeItem("isAdmin");
     localStorage.removeItem("username");
-    setUsername("");
     localStorage.removeItem("password");
-    setPassword("");
-    setIsAdmin(false);
     window.location.href = "/";
   }
 
   return (
     <nav>
-      <div className="box">
-        <img className="logo" src="/img/logo.svg" alt="logo" />
+      <div className={styles.box}>
+        <img className={styles.logo} src="/img/logo.svg" alt="logo" />
         <ul>
           {!isLogged ? (
             <Link to="/">
-              <li className={location.pathname === "/" ? "active" : ""}>
+              <li className={location.pathname === "/" ? styles.active : ""}>
                 <svg
                   width="800px"
                   height="800px"
@@ -68,11 +46,13 @@ export default function SideBar() {
               </li>
             </Link>
           ) : null}
-          {isAdmin ? (
+          {isAdmin && isLogged ? (
             <>
               <Link to="/pedidos">
                 <li
-                  className={location.pathname === "/pedidos" ? "active" : ""}
+                  className={
+                    location.pathname === "/pedidos" ? styles.active : ""
+                  }
                 >
                   <svg
                     width="800px"
@@ -101,7 +81,7 @@ export default function SideBar() {
               <Link to="/inventario">
                 <li
                   className={
-                    location.pathname === "/inventario" ? "active" : ""
+                    location.pathname === "/inventario" ? styles.active : ""
                   }
                 >
                   <svg
@@ -123,7 +103,9 @@ export default function SideBar() {
           {!isAdmin && isLogged ? (
             <Link to="/hacerPedido">
               <li
-                className={location.pathname === "/hacerPedido" ? "active" : ""}
+                className={
+                  location.pathname === "/hacerPedido" ? styles.active : ""
+                }
               >
                 <svg
                   width="800px"
@@ -153,7 +135,7 @@ export default function SideBar() {
         </ul>
       </div>
       {isLogged ? (
-        <div className="box2">
+        <div className={styles.box2}>
           <ul>
             <button onClick={() => logout()}>
               <li>
