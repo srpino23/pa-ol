@@ -37,4 +37,235 @@
   gap: 1rem;
   flex-wrap: wrap;
   margin-top: 1rem;
+  height: calc(100vh - 10rem);
+  overflow: auto;
+}
+
+.container .modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container .modal .modalContent {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.container .modal .modalContent .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .modal .modalContent .header h2 {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.container .modal .modalContent .header .close {
+  background-color: red;
+  border: none;
+  width: 2rem;
+  border-radius: 5px;
+  height: 2rem;
+  text-align: center;
+  font-weight: 900;
+  padding: 0.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.container .modal .modalContent .details p {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem 0;
+}
+
+.container .modal .modalContent .details .search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem 0;
+}
+
+.container .modal .modalContent .details .search p {
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container .modal .modalContent .details .search input {
+  height: 30px;
+  background: #485299;
+  border: none;
+  color: #fff;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.container .modal .modalContent .order {
+  max-height: 200px;
+  overflow-y: scroll;
+}
+
+.container .modal .modalContent .order .tool {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .modal .modalContent .order .tool .toolData {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.container .modal .modalContent .order .tool .toolData p {
+  width: 100px;
+  background: #e0e0e0;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.container .modal .modalContent .order .tool input {
+  width: 80px;
+  height: 50px;
+  background: #e0e0e0;
+  border: none;
+  color: #000;
+  border-radius: 5px;
+  text-align: center;
+  margin-bottom: 0.5rem;
+  -moz-appearance: textfield;
+  appearance: textfield;
+  margin-right: 1rem;
+}
+
+.container .modal .modalContent .order .tool input[type="number"]::-webkit-inner-spin-button,
+.container .modal .modalContent .order .tool input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.container .modal .modalContent .footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.container .modal .modalContent .footer p {
+  height: 32px;
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+}
+
+.container .modal .modalContent .footer input {
+  height: 32px;
+  width: 80px;
+  background: #e0e0e0;
+  border: none;
+  color: #000;
+  border-radius: 5px;
+  text-align: center;
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.container .modal .modalContent .footer button {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  background: #4caf50;
+}
+
+@media (max-width: 500px) {
+  .container .title {
+    gap: 1rem;
+    font-size: 15px;
+  }
+
+  .container .title button {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    margin: 2rem;
+    font-size: 1.8rem;
+    font-weight: 300;
+    border-radius: 15px;
+    width: 60px;
+    height: 60px;
+    box-shadow: rgba(19, 26, 78, 0.7) 0px 0px 10px;
+  }
+
+  .container .modal .modalContent .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .container .modal .modalContent .details .search {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .container .modal .modalContent .details .search p {
+    font-size: 1.2rem;
+  }
+
+  .container .modal .modalContent .details .search input {
+    height: 40px;
+    width: 90%;
+  }
+
+  .container .modal .modalContent .order .tool {
+    justify-content: center;
+    gap: 0.1rem;
+  }
+
+  .container .modal .modalContent .order .tool .toolData {
+    gap: 0.1rem;
+  }
+
+  .container .modal .modalContent .order .tool .toolData p {
+    width: 60px;
+    height: 50px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .container .modal .modalContent .order .tool input {
+    width: 60px;
+    height: 50px;
+  }
+
+  .container .modal .modalContent .footer {
+    align-items: center;
+  }
+
+  .container .modal .modalContent .footer input {
+    height: 60px;
+    width: 80px;
+  }
+
+  .container .modal .modalContent .footer button {
+    height: 60px;
+  }
 }

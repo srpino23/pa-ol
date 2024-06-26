@@ -22,7 +22,6 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 1rem 0;
 }
 
 .container .filter input {
@@ -50,10 +49,19 @@
   cursor: pointer;
 }
 
+.container .orders {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+  height: calc(100vh - 12rem);
+  overflow: auto;
+}
+
 .container table {
   margin-top: 1rem;
   width: 100%;
-  max-height: 75%;
+  height: 50px;
   overflow-y: auto;
   overflow-x: hidden;
 }

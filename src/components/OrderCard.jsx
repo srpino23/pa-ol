@@ -2,53 +2,32 @@ import React from "react";
 
 import styles from "../assets/styles/orderCard.module.css";
 
-export default function OrderCard() {
+export default function OrderCard({ order }) {
+  // formatear la fecha a dd/mm/yyyy
+
+  var date = new Date(order.date);
+  var day = date.getDate();
+  date = `${day}/${date.getMonth() + 1}/${date.getFullYear()}`;
+
   return (
     <div className={styles.orderBox}>
-      <div className={styles.cardTop}>
-        <p>Pedido</p>
-        <div className={styles.eye}>
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
-            <g
-              id="SVGRepo_tracerCarrier"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            ></g>
-            <g id="SVGRepo_iconCarrier">
-              <path
-                d="M3.27489 15.2957C2.42496 14.1915 2 13.6394 2 12C2 10.3606 2.42496 9.80853 3.27489 8.70433C4.97196 6.49956 7.81811 4 12 4C16.1819 4 19.028 6.49956 20.7251 8.70433C21.575 9.80853 22 10.3606 22 12C22 13.6394 21.575 14.1915 20.7251 15.2957C19.028 17.5004 16.1819 20 12 20C7.81811 20 4.97196 17.5004 3.27489 15.2957Z"
-                stroke="#ffffff"
-                stroke-width="1.5"
-              ></path>
-              <path
-                d="M15 12C15 13.6569 13.6569 15 12 15C10.3431 15 9 13.6569 9 12C9 10.3431 10.3431 9 12 9C13.6569 9 15 10.3431 15 12Z"
-                stroke="#ffffff"
-                stroke-width="1.5"
-              ></path>
-            </g>
-          </svg>
+      <div>
+        <div className={styles.cardTop}>
+          <p>Pedido</p>
+          <p>{date}</p>
         </div>
-      </div>
-      <hr />
-      <div className={styles.toolLine}>
-        <p>Martillo</p>
-        <p>3</p>
-      </div>
-      <div className={styles.toolLine}>
-        <p>Destornillador</p>
-        <p>3</p>
-      </div>
-      <div className={styles.toolLine}>
-        <p>Pinzas</p>
-        <p>3</p>
+        <hr />
+        {order.materials.map((material, index) => (
+          <div className={styles.toolLine}>
+            <p>{material.name}</p>
+            <p>{material.quantity}</p>
+          </div>
+        ))}
       </div>
 
-      <div className={`${styles.orderState} ${styles.Devuelto}`}>Pendiente</div>
+      <div className={`${styles.orderState} ${styles[order.state]}`}>
+        {order.state}
+      </div>
     </div>
   );
 }

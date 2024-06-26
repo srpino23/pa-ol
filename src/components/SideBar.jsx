@@ -8,11 +8,6 @@ export default function SideBar() {
   const isLogged = JSON.parse(localStorage.getItem("isLogged"));
   const isAdmin = JSON.parse(localStorage.getItem("isAdmin"));
 
-  useState(() => {
-    console.log("LOGGED: " + isLogged);
-    console.log("ADMIN: " + isAdmin);
-  });
-
   function logout() {
     localStorage.removeItem("isLogged");
     localStorage.removeItem("isAdmin");

@@ -19,7 +19,7 @@ export default function HomeScreen() {
 
   function getUser() {
     // manejar datos con axios
-    Axios.post("http://localhost:2100/api/account/getUser", {
+    Axios.post("http://10.0.15.65:2100/api/account/getUser", {
       user: [
         {
           username: usernameInput,

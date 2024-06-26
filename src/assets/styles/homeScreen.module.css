@@ -95,3 +95,18 @@
   font-weight: bold;
   width: 50%;
 }
+
+@media (max-width: 500px) {
+  .container .loginContainer .login .loginBtn button{
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .container .loginContainer .login h3{
+    font-size: 1.8rem;
+  }
+
+  .container .loginContainer .login .inputs{
+    font-size: 1rem;
+  }
+};
